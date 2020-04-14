@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML-Form Validation</title>
+	<script>
+		function validateForm(){
+			var x= document.getElementById("name").value;
+			if(x==""){
+				alert("Fill the students name");
+				return false;
+			}
+			else if(x.length<=5){
+				alert("Name should be greater than 5 characters");
+				return false;
+			}
+			else if(typeof x!="string"){
+				alert("Accept only alphabets");
+				return false;
+			}
+			var y=document.getElementById("age").value;
+			if(y==""){
+				alert("Fill the students age");
+				return false;
+			}
+			else if(y<15||y>120){
+				alert("Age: Should be between 15 and 120");
+				return false;
+			}
+			var gender=document.getElementsByName("gender");
+			if(gender[0].checked==false && gender[1].checked==false){
+				alert("Select your gender: Male(M) or Female(F)")
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form onSubmit="return validateForm()">
+	<fieldset>
+	<legend>Personal information:</legend><br>
+	Student Name: <input type="text" id="name"><br><br>
+	Age: <input type="number" id="age"><br><br>
+	Gender: <input type="radio" name="gender">M
+			<input type="radio" name="gender">F<br><br>
+	<input type="submit">
+	</fieldset>
+	</form>
+</body>
+</html>
